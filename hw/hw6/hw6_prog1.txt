@@ -1,0 +1,25 @@
+# CE 2310 HW 6 Program 1
+# Drew Pulliam	
+		
+	.text
+main: 	la $t0,y
+	move $t1,$0		#reset counter
+	li $v0,11
+		
+loop: 	lb $t3,0($t0) 	# Loop begins here.
+	bge $t1,8,end 	# done yet?
+	bgt $t3,0x39,next
+	blt $t3,0x30,next
+	move $a0,$t3	# Store valid character
+	syscall
+		
+next: 	addi $t0,$t0,1
+	addi $t1,$t1,1 	# incr counter
+	j loop 			
+		
+end: 	li $v0,10		#end program
+	syscall
+		
+	.data
+y: 	.word 0x32774b33
+z: 	.word 0x2a276c39
