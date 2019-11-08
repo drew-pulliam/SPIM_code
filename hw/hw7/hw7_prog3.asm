@@ -34,4 +34,4 @@ goback: addi $t0,$t0,1 		# swap done - unwind
 		jr $ra
 		
 		.data
-str: 	.asciiz "Hello, world!\n"
+str: 	.asciiz "Hello, world!\n\n\n\n\n\n"
